@@ -19,9 +19,8 @@
     b: 2012938
   };
 
-  const omitted3: MyOmit<ObjType, 'asdffadfd'> = {
+  const omitted3: MyOmit<ObjType, 'asdffadfd' | 'b'> = {
     a: 0,
-    b: 2012938
   };
 
   const omitted4: MyPick<ObjType, 'asdffadfd'> = {

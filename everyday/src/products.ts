@@ -13,9 +13,10 @@ function updateProduct(
     (product) => product.id === productId
   );
 
-  if (productIndex !== -1) {
+  const existingProduct = products[productIndex];
+  if (existingProduct !== undefined) {
     products[productIndex] = {
-      ...products[productIndex],
+      ...existingProduct,
       ...updatedValues,
     };
   } else {
@@ -36,3 +37,13 @@ updateProduct(1, {
   name: "Updated Product Name",
   price: 99.99,
 });
+
+updateProduct(1, {
+  name: undefined,
+  price: undefined,
+});
+
+const firstProduct = products[0]; 
+/* causes no type errors. Result:
+{ id: 1, name: undefined,  price: undefined, description: 'A sample product for demonstration' }
+*/
